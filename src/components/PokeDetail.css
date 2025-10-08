@@ -28,7 +28,7 @@
   min-height: 100vh;
   padding: 2rem;
   font-family: 'Roboto', sans-serif;
-  background: #f0f2f5;
+  background: #fff5e1; /* Soft yellow background */
 }
 
 .poke-detail-card {
@@ -38,8 +38,13 @@
   width: 100%;
   max-width: 700px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  border-top: 10px solid;
+  border-top: 10px solid #f39c12; /* Default to orange */
   transition: all 0.3s ease;
+}
+
+.poke-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .poke-detail-header {

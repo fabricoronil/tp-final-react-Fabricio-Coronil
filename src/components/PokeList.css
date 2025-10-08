@@ -1,3 +1,4 @@
+
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
@@ -7,16 +8,26 @@
 }
 
 .pokemon-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 2px solid #e67e22; /* Darker orange border */
+  border-radius: 10px;
   padding: 16px;
   text-align: center;
   width: 200px;
+  background: linear-gradient(to bottom, #f1c40f, #f39c12); /* Yellow to orange gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px); /* Lifts the card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-card img {
   width: 150px;
   height: 150px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
 }
 
 .pokemon-card-buttons {
@@ -32,19 +43,29 @@
 }
 
 .pokemon-card-buttons button {
-  padding: 8px;
+  padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  background-color: #f7e11b;
+  background-color: #e67e22; /* Vibrant orange */
   color: white;
-  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.pokemon-card-buttons button:hover {
+  background-color: #d35400; /* Darker orange on hover */
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
 
 .pokemon-card p {
   font-weight: bold;
   text-transform: capitalize; 
   font-size: 20px;
+  color: #2c3e50; /* Darker text color for better readability */
 }
 
 .remove-favorite-btn {
