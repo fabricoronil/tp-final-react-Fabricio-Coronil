@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './PokeList.css';
+import { FavoritesContext } from './FavoritesContext';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -52,11 +54,11 @@ const PokeList = () => {
             <p>{p.name}</p>
             <div className="pokemon-card-buttons">
               <button>Añadir al carrito</button>
-              <button>Favoritos</button>
+              <button onClick={() => addToFavorites(p)}>Favoritos</button>
               <button>Información</button>
             </div>
           </div>
-        ))}
+        ))} 
       </div>
     </div>
   );
