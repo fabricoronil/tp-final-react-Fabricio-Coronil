@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FavoritesContext } from './FavoritesContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 import './PokeList.css';
 
 export default function Favoritos() {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './PokeList.css';
-import { FavoritesContext } from './FavoritesContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 import { CartContext } from '../context/CartContext';
 
 const PokeList = () => {
@@ -23,6 +24,7 @@ const PokeList = () => {
             const res = await fetch(p.url);
             const detailData = await res.json();
             return {
+              id: detailData.id,
               name: detailData.name,
               image: detailData.sprites.front_default,
             };
@@ -50,14 +52,14 @@ const PokeList = () => {
   return (
     <div>
       <div className="pokemon-container">
-        {pokemon.map((p, index) => (
-          <div key={index} className="pokemon-card">
+        {pokemon.map((p) => (
+          <div key={p.id} className="pokemon-card">
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
             <div className="pokemon-card-buttons">
               <button onClick={() => addToCart(p)}>Añadir al carrito</button>
               <button onClick={() => addToFavorites(p)}>Favoritos</button>
-              <button>Información</button>
+              <Link to={`/pokemon/${p.id}`}><button>Información</button></Link>
             </div>
           </div>
         ))} 
