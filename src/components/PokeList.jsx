@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './PokeList.css';
 import { FavoritesContext } from './FavoritesContext';
-import { CartContext } from './CartContext';
+import { CartContext } from '../context/CartContext';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);

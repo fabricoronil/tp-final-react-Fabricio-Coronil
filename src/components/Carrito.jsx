@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from '../context/CartContext';
 import './PokeList.css';
 
 export default function Carrito() {

@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Favoritos from './components/Favoritos';
 import Carrito from './components/Carrito';
 import { FavoritesProvider } from './components/FavoritesContext';
-import { CartProvider } from './components/CartContext';
+import { CartProvider } from './components/CartProvider';
 import './App.css'
 
 function App() {
