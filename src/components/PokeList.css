@@ -1,4 +1,3 @@
-
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
@@ -14,13 +13,13 @@
   text-align: center;
   width: 200px;
   background: linear-gradient(to bottom, #f1c40f, #f39c12); /* Yellow to orange gradient */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .pokemon-card:hover {
   transform: translateY(-5px); /* Lifts the card on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .pokemon-card img {
@@ -76,6 +75,11 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+
+.remove-favorite-btn:hover {
+  transform: scale(1.1);
 }
 
 
@@ -87,4 +91,25 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+
+.estilobotonquitar:hover {
+  transform: scale(1.1);
+}
+
+.view-more-btn {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.view-more-btn:hover {
+    background-color: #d35400;
+    scale: 1.05;
+    transition: all 0.3s ease;
 }

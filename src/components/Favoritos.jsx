@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../context/FavoritesContext';
 import './PokeList.css';
 
@@ -18,6 +19,9 @@ export default function Favoritos() {
           <div key={index} className="pokemon-card">
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
+            <Link to={`/pokemon/${p.id}`}>
+              <button className="view-more-btn">Informacion</button>
+            </Link>
             <button
               className="remove-favorite-btn"
               onClick={() => removeFromFavorites(p.name)}
