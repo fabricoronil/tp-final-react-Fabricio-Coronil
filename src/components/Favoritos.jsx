@@ -3,7 +3,7 @@ import { FavoritesContext } from './FavoritesContext';
 import './PokeList.css';
 
 export default function Favoritos() {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, removeFromFavorites } = useContext(FavoritesContext);
 
   return (
     <div>
@@ -18,6 +18,12 @@ export default function Favoritos() {
           <div key={index} className="pokemon-card">
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
+            <button
+              className="remove-favorite-btn"
+              onClick={() => removeFromFavorites(p.name)}
+            >
+              Quitar de favoritos
+            </button>
           </div>
         ))}
       </div>

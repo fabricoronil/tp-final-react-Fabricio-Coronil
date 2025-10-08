@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext';
 import './PokeList.css';
 
 export default function Carrito() {
-  const { cart } = useContext(CartContext);
+  const { cart, removeFromCart } = useContext(CartContext);
 
   return (
     <div>
@@ -18,6 +18,7 @@ export default function Carrito() {
           <div key={index} className="pokemon-card">
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
+            <button className='estilobotonquitar' onClick={() => removeFromCart(index)}>Quitar del Carrito</button>
           </div>
         ))}
       </div>
