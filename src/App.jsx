@@ -1,4 +1,5 @@
 
+import PokeStoreNav from './components/PokeStoreNav';
 import './App.css'
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Proyecto Final de Front end</h1>
+      <PokeStoreNav />
     </>
   )
 }
