@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './PokeList.css';
 import { FavoritesContext } from './FavoritesContext';
+import { CartContext } from './CartContext';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { addToFavorites } = useContext(FavoritesContext);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -53,7 +55,7 @@ const PokeList = () => {
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
             <div className="pokemon-card-buttons">
-              <button>Añadir al carrito</button>
+              <button onClick={() => addToCart(p)}>Añadir al carrito</button>
               <button onClick={() => addToFavorites(p)}>Favoritos</button>
               <button>Información</button>
             </div>
