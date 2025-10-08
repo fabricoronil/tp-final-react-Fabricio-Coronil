@@ -141,7 +141,7 @@ export default function PokeStoreNav() {
       </nav>
 
       <div className="content-area">
-        <div className="content-box">
+        <div className={activeSection === 'pokemones' ? '' : 'content-box'}>
           {activeSection === 'home' && (
             <div>
               <h2 className="section-title font-pixel">
@@ -157,9 +157,6 @@ export default function PokeStoreNav() {
               <h2 className="section-title font-pixel">
                 Explora Nuestros Pokémones
               </h2>
-              <p className="section-text">
-                ¡Descubre y captura los mejores Pokémones para tu colección!
-              </p>
             </div>
           )}
 
