@@ -180,6 +180,7 @@
 }
 
 .mobile-menu.open {
+  display: flex;
   max-height: 400px;
   opacity: 1;
 }
@@ -234,10 +235,6 @@
     display: block;
   }
   
-  .mobile-menu {
-    display: flex;
-  }
-  
   .logo {
     width: 40px;
     height: 40px;
@@ -249,6 +246,7 @@
   
   .nav-content {
     padding: 0.75rem 0;
+   
   }
 }
 
@@ -258,12 +256,12 @@
   }
   
   .logo {
-    width: 36px;
-    height: 36px;
+    width: 65px;
+    height: 65px;
   }
   
   .logo-icon {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .mobile-nav-button {
