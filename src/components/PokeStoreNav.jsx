@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './PokeStoreNav.css';
 
 export default function PokeStoreNav() {
-  const [activeSection, setActiveSection] = useState('home');
-  const [cartCount, _setCartCount] = useState(0);
-  const [favCount, _setFavCount] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -20,42 +18,20 @@ export default function PokeStoreNav() {
             </div>
 
             <div className="desktop-nav-links">
-              <button
-                onClick={() => setActiveSection('home')}
-                className={`nav-button ${
-                  activeSection === 'home' ? 'active' : 'inactive'
-                }`}
-              >
+              <NavLink to="/" className={({isActive}) => `nav-button ${isActive ? 'active' : 'inactive'}`}>
                 🏠 Home
-              </button>
-              <button
-                onClick={() => setActiveSection('pokemones')}
-                className={`nav-button ${
-                  activeSection === 'pokemones' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/pokemones" className={({isActive}) => `nav-button ${isActive ? 'active' : 'inactive'}`}>
                 Pokémones
-              </button>
-
-              <button
-                onClick={() => setActiveSection('favoritos')}
-                className={`nav-button ${
-                  activeSection === 'favoritos' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/favoritos" className={({isActive}) => `nav-button ${isActive ? 'active' : 'inactive'}`}>
                 <span className="fav-icon">❤️ Favoritos</span>
                 <span className="fav-icon-mobile">❤️</span>
-              </button>
-
-              <button
-                onClick={() => setActiveSection('carrito')}
-                className={`nav-button ${
-                  activeSection === 'carrito' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/carrito" className={({isActive}) => `nav-button ${isActive ? 'active' : 'inactive'}`}>
                 <span className="cart-icon">🛒 Carrito</span>
                 <span className="cart-icon-mobile">🛒</span>
-              </button>
+              </NavLink>
             </div>
 
             <button
@@ -89,100 +65,22 @@ export default function PokeStoreNav() {
 
           {mobileMenuOpen && (
             <div className="mobile-menu">
-              <button
-                onClick={() => {
-                  setActiveSection('home');
-                  setMobileMenuOpen(false);
-                }}
-                className={`mobile-nav-button ${
-                  activeSection === 'home' ? 'active' : 'inactive'
-                }`}
-              >
+              <NavLink to="/" className={({isActive}) => `mobile-nav-button ${isActive ? 'active' : 'inactive'}`} onClick={() => setMobileMenuOpen(false)}>
                 🏠 Home
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSection('pokemones');
-                  setMobileMenuOpen(false);
-                }}
-                className={`mobile-nav-button ${
-                  activeSection === 'pokemones' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/pokemones" className={({isActive}) => `mobile-nav-button ${isActive ? 'active' : 'inactive'}`} onClick={() => setMobileMenuOpen(false)}>
                 Pokémones
-              </button>
-
-              <button
-                onClick={() => {
-                  setActiveSection('favoritos');
-                  setMobileMenuOpen(false);
-                }}
-                className={`mobile-nav-button ${
-                  activeSection === 'favoritos' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/favoritos" className={({isActive}) => `mobile-nav-button ${isActive ? 'active' : 'inactive'}`} onClick={() => setMobileMenuOpen(false)}>
                 ❤️ Favoritos
-              </button>
-
-              <button
-                onClick={() => {
-                  setActiveSection('carrito');
-                  setMobileMenuOpen(false);
-                }}
-                className={`mobile-nav-button ${
-                  activeSection === 'carrito' ? 'active' : 'inactive'
-                }`}
-              >
+              </NavLink>
+              <NavLink to="/carrito" className={({isActive}) => `mobile-nav-button ${isActive ? 'active' : 'inactive'}`} onClick={() => setMobileMenuOpen(false)}>
                 🛒 Carrito
-              </button>
+              </NavLink>
             </div>
           )}
         </div>
       </nav>
-
-      <div className="content-area">
-        <div className={activeSection === 'pokemones' ? '' : 'content-box'}>
-          {activeSection === 'home' && (
-            <div>
-              <h2 className="section-title font-pixel">
-                Bienvenido a PokeStore
-              </h2>
-              <p className="section-text">
-                Este es un proyecto en desarrollo con fines de aprendizaje, que combina la emoción de Pokémon con una experiencia de compra en línea. Nuestro objetivo es crear un espacio donde los fanáticos puedan explorar, seleccionar y guardar sus Pokémon favoritos, así como simular una compra en un entorno interactivo y divertido.
-              </p>
-            </div>
-          )}
-          {activeSection === 'pokemones' && (
-            <div>
-              <h2 className="section-title font-pixel">
-                Explora Nuestros Pokémones
-              </h2>
-            </div>
-          )}
-
-          {activeSection === 'favoritos' && (
-            <div>
-              <h2 className="section-title font-pixel">
-                ❤️ Tus Favoritos ({favCount})
-              </h2>
-              <p className="section-text">
-                Aquí encontrarás todos tus Pokémones favoritos guardados.
-              </p>
-            </div>
-          )}
-
-          {activeSection === 'carrito' && (
-            <div>
-              <h2 className="section-title font-pixel">
-                🛒 Tu Carrito ({cartCount} items)
-              </h2>
-              <p className="section-text">
-                Revisa tu carrito de compras antes de finalizar tu pedido.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
