@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './PokeStoreNav.css';
 
 export default function PokeStoreNav() {
-  const [activeSection, setActiveSection] = useState('pokemones');
+  const [activeSection, setActiveSection] = useState('home');
   const [cartCount, _setCartCount] = useState(0);
   const [favCount, _setFavCount] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,6 +20,14 @@ export default function PokeStoreNav() {
             </div>
 
             <div className="desktop-nav-links">
+              <button
+                onClick={() => setActiveSection('home')}
+                className={`nav-button ${
+                  activeSection === 'home' ? 'active' : 'inactive'
+                }`}
+              >
+                🏠 Home
+              </button>
               <button
                 onClick={() => setActiveSection('pokemones')}
                 className={`nav-button ${
@@ -83,6 +91,17 @@ export default function PokeStoreNav() {
             <div className="mobile-menu">
               <button
                 onClick={() => {
+                  setActiveSection('home');
+                  setMobileMenuOpen(false);
+                }}
+                className={`mobile-nav-button ${
+                  activeSection === 'home' ? 'active' : 'inactive'
+                }`}
+              >
+                🏠 Home
+              </button>
+              <button
+                onClick={() => {
                   setActiveSection('pokemones');
                   setMobileMenuOpen(false);
                 }}
@@ -123,6 +142,16 @@ export default function PokeStoreNav() {
 
       <div className="content-area">
         <div className="content-box">
+          {activeSection === 'home' && (
+            <div>
+              <h2 className="section-title font-pixel">
+                Bienvenido a PokeStore
+              </h2>
+              <p className="section-text">
+                Este es un proyecto en desarrollo con fines de aprendizaje, que combina la emoción de Pokémon con una experiencia de compra en línea. Nuestro objetivo es crear un espacio donde los fanáticos puedan explorar, seleccionar y guardar sus Pokémon favoritos, así como simular una compra en un entorno interactivo y divertido.
+              </p>
+            </div>
+          )}
           {activeSection === 'pokemones' && (
             <div>
               <h2 className="section-title font-pixel">
