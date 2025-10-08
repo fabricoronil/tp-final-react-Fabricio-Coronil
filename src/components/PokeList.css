@@ -30,7 +30,18 @@
   text-align: center;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+.pokemon-card-buttons button {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f7e11b;
+  color: white;
+  color: black;
+}
+
+.pokemon-card p {
+  font-weight: bold;
+  text-transform: capitalize; 
+  font-size: 20px;
 }
