@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './PokeList.css';
 import { FavoritesContext } from '../context/FavoritesContext';
 import { CartContext } from '../context/CartContext';
+import PokeCard from './PokeCard';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -53,15 +54,11 @@ const PokeList = () => {
     <div>
       <div className="pokemon-container">
         {pokemon.map((p) => (
-          <div key={p.id} className="pokemon-card">
-            <img src={p.image} alt={p.name} />
-            <p>{p.name}</p>
-            <div className="pokemon-card-buttons">
-              <button onClick={() => addToCart(p)}>Añadir al carrito</button>
-              <button onClick={() => addToFavorites(p)}>Favoritos</button>
-              <Link to={`/pokemon/${p.id}`}><button>Información</button></Link>
-            </div>
-          </div>
+          <PokeCard key={p.id} pokemon={p}>
+            <button onClick={() => addToCart(p)}>Añadir al carrito</button>
+            <button onClick={() => addToFavorites(p)}>Favoritos</button>
+            <Link to={`/pokemon/${p.id}`}><button>Información</button></Link>
+          </PokeCard>
         ))} 
       </div>
     </div>

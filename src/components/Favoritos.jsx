@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../context/FavoritesContext';
 import './PokeList.css';
+import PokeCard from './PokeCard';
 
 export default function Favoritos() {
   const { favorites, removeFromFavorites } = useContext(FavoritesContext);
@@ -16,9 +17,7 @@ export default function Favoritos() {
       </p>
       <div className="pokemon-container">
         {favorites.map((p, index) => (
-          <div key={index} className="pokemon-card">
-            <img src={p.image} alt={p.name} />
-            <p>{p.name}</p>
+          <PokeCard key={index} pokemon={p}>
             <Link to={`/pokemon/${p.id}`}>
               <button className="view-more-btn">Informacion</button>
             </Link>
@@ -28,7 +27,7 @@ export default function Favoritos() {
             >
               Quitar de favoritos
             </button>
-          </div>
+          </PokeCard>
         ))}
       </div>
     </div>
