@@ -10,3 +10,7 @@
   min-height: 0px;
   text-align: center;
 }
+
+.remove-favorite-btn {
+  background-color: red;
+}

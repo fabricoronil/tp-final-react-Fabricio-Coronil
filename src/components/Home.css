@@ -90,14 +90,17 @@
 }
 
 .section-text::after {
-  content: '🎮';
+  content: "";
   position: absolute;
   bottom: -15px;
   right: 20px;
-  font-size: 2rem;
-  background: #e53935;
   width: 50px;
   height: 50px;
+  background: #e53935;
+  background-image: url(../assets/pikachu_icon-icons.com_67535.png);
+  background-size: contain;      /* se adapta al círculo sin deformarse */
+  background-repeat: no-repeat;
+  background-position: center;   /* centra el Pikachu */
   display: flex;
   align-items: center;
   justify-content: center;

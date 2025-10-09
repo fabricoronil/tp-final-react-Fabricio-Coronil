@@ -21,7 +21,7 @@ export default function Favoritos() {
             <Link to={`/pokemon/${p.id}`}>
               <button className="view-more-btn">Informacion</button>
             </Link>
-            <button
+            <button style={{ background: '#E74C3C' }}
               className="remove-favorite-btn"
               onClick={() => removeFromFavorites(p.name)}
             >
