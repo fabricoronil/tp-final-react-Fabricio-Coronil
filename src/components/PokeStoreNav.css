@@ -208,6 +208,10 @@
   background: #f7fafc;
 }
 
+.mobile-nav-button .nav-counter {
+  margin-left: 0;
+}
+
 .mobile-nav-button:hover {
   background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
   color: white;

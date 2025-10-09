@@ -108,6 +108,7 @@ export default function PokeStoreNav() {
             >
               <span className="mobile-nav-icon">❤️</span>
               <span>Favoritos</span>
+              {favorites.length > 0 && <span className="nav-counter">{favorites.length}</span>}
             </NavLink>
             <NavLink 
               to="/carrito" 
@@ -116,6 +117,7 @@ export default function PokeStoreNav() {
             >
               <span className="mobile-nav-icon">🛒</span>
               <span>Carrito</span>
+              {cart.length > 0 && <span className="nav-counter">{cart.length}</span>}
             </NavLink>
           </div>
         </div>
