@@ -241,6 +241,9 @@
 }
 
 @media (max-width: 768px) {
+  .nav {
+    position: fixed;
+  }
   .desktop-nav-links {
     display: none;
   }
