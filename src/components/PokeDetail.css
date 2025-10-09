@@ -264,6 +264,43 @@
 .type-bg-dark { background-color: var(--type-dark); }
 .type-bg-flying { background-color: var(--type-flying); }
 
+.poke-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.favorite-btn, .cart-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.favorite-btn {
+  background-color: #ffca28; /* Amber */
+  color: #333;
+}
+
+.favorite-btn:hover {
+  background-color: #ffb300; /* Darker Amber */
+  transform: translateY(-2px);
+}
+
+.cart-btn {
+  background-color: #ef5350; /* Red */
+  color: white;
+}
+
+.cart-btn:hover {
+  background-color: #e53935; /* Darker Red */
+  transform: translateY(-2px);
+}
+
 @media (max-width: 600px) {
   .poke-detail-body {
     grid-template-columns: 1fr;

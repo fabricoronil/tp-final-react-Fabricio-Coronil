@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import './PokeDetail.css';
+import { CartContext } from '../context/CartContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 function PokeDetail() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [species, setSpecies] = useState(null);
+  const { addToCart } = useContext(CartContext);
+  const { addToFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -20,8 +24,26 @@ function PokeDetail() {
       });
   }, [id]);
 
+  const handleAddToCart = () => {
+    const pokemonToAdd = {
+      id: pokemon.id,
+      name: pokemon.name,
+      image: pokemon.sprites.other['official-artwork'].front_default
+    };
+    addToCart(pokemonToAdd);
+  };
+
+  const handleAddToFavorites = () => {
+    const pokemonToAdd = {
+      id: pokemon.id,
+      name: pokemon.name,
+      image: pokemon.sprites.other['official-artwork'].front_default
+    };
+    addToFavorites(pokemonToAdd);
+  };
+
   if (!pokemon || !species) {
-    return <div className="loading">Cargando...</div>;
+    return <div class="loading">Cargando...</div>;
   }
 
   const description = species.flavor_text_entries.find(entry => entry.language.name === 'es');
@@ -36,26 +58,26 @@ function PokeDetail() {
   };
 
   return (
-    <div className="poke-detail-container">
-      <div className={`poke-detail-card type-${pokemon.types[0].type.name}`}>
-        <div className="poke-detail-header">
-          <h2 className="poke-name">{pokemon.name}</h2>
-          <div className="poke-id">#{pokemon.id.toString().padStart(3, '0')}</div>
+    <div class="poke-detail-container">
+      <div class={`poke-detail-card type-${pokemon.types[0].type.name}`}>
+        <div class="poke-detail-header">
+          <h2 class="poke-name">{pokemon.name}</h2>
+          <div class="poke-id">#{pokemon.id.toString().padStart(3, '0')}</div>
         </div>
-        <div className="poke-detail-body">
-          <div className="poke-image-section">
-            <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} className="poke-detail-image" />
-            <div className="poke-types">
+        <div class="poke-detail-body">
+          <div class="poke-image-section">
+            <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} class="poke-detail-image" />
+            <div class="poke-types">
               {pokemon.types.map(typeInfo => (
-                <span key={typeInfo.type.name} className={`poke-type type-bg-${typeInfo.type.name}`}>
+                <span key={typeInfo.type.name} class={`poke-type type-bg-${typeInfo.type.name}`}>
                   {typeInfo.type.name}
                 </span>
               ))}
             </div>
           </div>
-          <div className="poke-info-section">
-            <p className="poke-description">{description ? description.flavor_text : 'No hay descripción disponible en español.'}</p>
-            <div className="poke-measurements">
+          <div class="poke-info-section">
+            <p class="poke-description">{description ? description.flavor_text : 'No hay descripción disponible en español.'}</p>
+            <div class="poke-measurements">
               <div>
                 <h3>Altura</h3>
                 <p>{pokemon.height / 10} m</p>
@@ -65,7 +87,7 @@ function PokeDetail() {
                 <p>{pokemon.weight / 10} kg</p>
               </div>
             </div>
-            <div className="poke-abilities">
+            <div class="poke-abilities">
               <h3>Habilidades</h3>
               <ul>
                 {pokemon.abilities.map(abilityInfo => (
@@ -73,17 +95,21 @@ function PokeDetail() {
                 ))}
               </ul>
             </div>
+            <div class="poke-actions">
+              <button class="favorite-btn" onClick={handleAddToFavorites}>Añadir a Favoritos</button>
+              <button class="cart-btn" onClick={handleAddToCart}>Añadir al Carrito</button>
+            </div>
           </div>
         </div>
-        <div className="poke-stats">
+        <div class="poke-stats">
           <h3>Estadísticas Base</h3>
           {pokemon.stats.map(statInfo => (
-            <div key={statInfo.stat.name} className="stat-item">
-              <span className="stat-name">{statTranslations[statInfo.stat.name] || statInfo.stat.name}</span>
-              <div className="stat-bar-container">
-                <div className="stat-bar" style={{ width: `${(statInfo.base_stat / 255) * 100}%` }}></div>
+            <div key={statInfo.stat.name} class="stat-item">
+              <span class="stat-name">{statTranslations[statInfo.stat.name] || statInfo.stat.name}</span>
+              <div class="stat-bar-container">
+                <div class="stat-bar" style={{ width: `${(statInfo.base_stat / 255) * 100}%` }}></div>
               </div>
-              <span className="stat-value">{statInfo.base_stat}</span>
+              <span class="stat-value">{statInfo.base_stat}</span>
             </div>
           ))}
         </div>
