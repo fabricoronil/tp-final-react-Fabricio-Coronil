@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import './PokeStoreNav.css';
 import pokeStoreLogo from '../assets/pokestore.png';
+import { CartContext } from '../context/CartContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 export default function PokeStoreNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cart } = useContext(CartContext);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
     <div className="screen">
@@ -38,6 +42,7 @@ export default function PokeStoreNav() {
               >
                 <span className="nav-icon">❤️</span>
                 <span className="nav-text nav-text-full">Favoritos</span>
+                {favorites.length > 0 && <span className="nav-counter">{favorites.length}</span>}
               </NavLink>
               <NavLink 
                 to="/carrito" 
@@ -45,6 +50,7 @@ export default function PokeStoreNav() {
               >
                 <span className="nav-icon">🛒</span>
                 <span className="nav-text nav-text-full">Carrito</span>
+                {cart.length > 0 && <span className="nav-counter">{cart.length}</span>}
               </NavLink>
             </div>
 

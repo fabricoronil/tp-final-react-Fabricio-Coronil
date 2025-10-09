@@ -108,6 +108,16 @@
   background: transparent;
 }
 
+.nav-counter {
+  background-color: #e53e3e;
+  color: white;
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
 .nav-button::before {
   content: '';
   position: absolute;
