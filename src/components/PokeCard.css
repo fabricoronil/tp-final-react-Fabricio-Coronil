@@ -1,100 +1,177 @@
 .pokemon-card {
-  border: 2px solid #e67e22; /* Darker orange border */
-  border-radius: 10px;
-  padding: 16px;
+  position: relative;
+  border: 3px solid #f5a623;
+  border-radius: 20px;
+  padding: 24px;
   text-align: center;
-  width: 200px;
-  background: linear-gradient(to bottom, #f1c40f, #f39c12); /* Yellow to orange gradient */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  width: 220px;
+  background: linear-gradient(135deg, #ffd93d 0%, #ffc107 50%, #f5a623 100%);
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4), 
+              0 5px 15px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+  overflow: hidden;
+}
+
+.pokemon-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.pokemon-card:hover::before {
+  left: 100%;
 }
 
 .pokemon-card:hover {
-  transform: translateY(-5px); /* Lifts the card on hover */
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.5), 
+              0 10px 20px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  border-color: #ffc107;
 }
 
 .pokemon-card img {
-  width: 150px;
-  height: 150px;
-  background-color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
   border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+              inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.pokemon-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-card p {
-  font-weight: bold;
+  font-weight: 800;
   text-transform: capitalize; 
-  font-size: 20px;
-  color: #2c3e50; /* Darker text color for better readability */
+  font-size: 22px;
+  color: #2c3e50;
+  margin: 16px 0 8px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6),
+               1px 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
 }
 
 .pokemon-card-buttons {
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .pokemon-card-buttons button {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+  padding: 12px 16px;
+  border: 2px solid #2c3e50;
+  border-radius: 10px;
   cursor: pointer;
-  background-color: #e67e22; /* Vibrant orange */
+  background: linear-gradient(135deg, #34495e, #2c3e50);
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 13px;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 10px rgba(44, 62, 80, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-card-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.pokemon-card-buttons button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .pokemon-card-buttons button:hover {
-  background-color: #d35400; /* Darker orange on hover */
-  transform: scale(1.05); /* Slightly enlarges the button on hover */
+  background: linear-gradient(135deg, #2c3e50, #1a252f);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(44, 62, 80, 0.5);
+  border-color: #1a252f;
 }
 
-.remove-favorite-btn {
-  background-color: #e74c3c;
+.pokemon-card-buttons button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(44, 62, 80, 0.3);
+}
+
+.remove-favorite-btn,
+.estilobotonquitar {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  border: 2px solid #c0392b;
+  padding: 10px 14px;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
-  transition: transform 0.2s ease;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 10px rgba(231, 76, 60, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-.remove-favorite-btn:hover {
-  transform: scale(1.1);
+.remove-favorite-btn:hover,
+.estilobotonquitar:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 7px 14px rgba(231, 76, 60, 0.5);
+  border-color: #a93226;
 }
 
 .view-more-btn {
-    background-color: #e67e22;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: 2px solid #2980b9;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 10px rgba(52, 152, 219, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
 .view-more-btn:hover {
-    background-color: #d35400;
-    scale: 1.05;
-    transition: all 0.3s ease;
-}
-
-.estilobotonquitar {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: transform 0.2s ease;
-}
-
-.estilobotonquitar:hover {
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 7px 14px rgba(52, 152, 219, 0.5);
+  border-color: #1f5f8b;
 }

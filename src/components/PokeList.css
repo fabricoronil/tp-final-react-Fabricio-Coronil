@@ -1,16 +1,53 @@
 .pokemon-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-.screen {
-  min-height: 0px;
-  text-align: center;
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-.remove-favorite-btn {
-  background-color: red;
+.vermas:hover {
+    background-color: #e67e00; 
+    transform: scale(1.05);
+}
+
+.load-more-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.vermas {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vermas:hover {
+    background-color: #ff9d1a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 140, 0, 0.4);
+}
+
+.vermas:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 140, 0, 0.3);
+}
+
+.vermas:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
 }
