@@ -19,10 +19,10 @@ export default function Favoritos() {
         {favorites.map((p, index) => (
           <PokeCard key={index} pokemon={p}>
             <Link to={`/pokemon/${p.id}`}>
-              <button className="view-more-btn">Informacion</button>
+              <button className="view-more-btn-new">Informacion</button>
             </Link>
-            <button style={{ background: '#E74C3C' }}
-              className="remove-favorite-btn"
+            <button
+              className="remove-favorite-btn-new"
               onClick={() => removeFromFavorites(p.name)}
             >
               Quitar de favoritos

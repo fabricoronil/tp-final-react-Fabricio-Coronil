@@ -80,10 +80,9 @@
 
 .pokemon-card-buttons button {
   padding: 12px 16px;
-  border: 2px solid #2c3e50;
-  border-radius: 10px;
+ border: 2px solid #ff5500; /* Amarillo dorado */
+  border-radius: 10px;       /* Bordes redondeados */
   cursor: pointer;
-  background: linear-gradient(135deg, #34495e, #2c3e50);
   color: white;
   font-weight: 700;
   text-transform: uppercase;
@@ -114,16 +113,45 @@
   height: 300px;
 }
 
-.pokemon-card-buttons button:hover {
-  background: linear-gradient(135deg, #2c3e50, #1a252f);
+.add-to-cart-btn-new {
+  background: linear-gradient(135deg, #28b463, #58d68d);
+  border-color: #28b463;
+}
+
+.add-favorite-btn-new {
+  background: linear-gradient(135deg, #ff2c2c, #ff5858);
+  border-color: #ff2c2c;
+}
+
+.view-more-btn-new {
+  background: linear-gradient(135deg, #3498db, #5dade2);
+  border-color: #3498db;
+}
+
+.add-favorite-btn-new:hover, .favorite-btn:hover {
+  background: linear-gradient(135deg, #ff5858, #ff2c2c);
+  border-color: #ff2c2c;
+  box-shadow: 0 7px 14px rgba(255, 44, 44, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 7px 14px rgba(44, 62, 80, 0.5);
-  border-color: #1a252f;
+}
+
+.add-to-cart-btn-new:hover, .cart-btn:hover {
+  background: linear-gradient(135deg, #58d68d, #28b463);
+  border-color: #28b463;
+  box-shadow: 0 7px 14px rgba(40, 180, 99, 0.5);
+  transform: translateY(-2px);
+}
+
+.view-more-btn-new:hover, .info-btn:hover {
+  background: linear-gradient(135deg, #5dade2, #3498db);
+  border-color: #3498db;
+  box-shadow: 0 7px 14px rgba(52, 152, 219, 0.5);
+  transform: translateY(-2px);
 }
 
 .pokemon-card-buttons button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(44, 62, 80, 0.3);
+  transform: translateY(0) scale(1.2);
+  box-shadow : 0 3px 6px rgba(44, 62, 80, 0.3);
 }
 
 .remove-favorite-btn,
@@ -170,6 +198,14 @@
 }
 
 .view-more-btn:hover {
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 7px 14px rgba(52, 152, 219, 0.5);
+  border-color: #1f5f8b;
+}
+
+
+.view-more-btn-new:hover {
   background: linear-gradient(135deg, #2980b9, #1f5f8b);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 7px 14px rgba(52, 152, 219, 0.5);

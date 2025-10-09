@@ -64,9 +64,9 @@ const PokeList = () => {
       <div className="pokemon-container">
         {pokemon.map((p) => (
           <PokeCard key={p.id} pokemon={p}>
-            <button onClick={() => addToCart(p)}>Añadir al carrito🛒</button>
-            <button onClick={() => addToFavorites(p)}>Favoritos ❤️</button>
-            <Link to={`/pokemon/${p.id}`}><button>Información ℹ️</button></Link>
+            <button className="add-to-cart-btn-new" onClick={() => addToCart(p)}>Añadir al carrito🛒</button>
+            <button className="add-favorite-btn-new" onClick={() => addToFavorites(p)}>Favoritos ❤️</button>
+            <Link to={`/pokemon/${p.id}`}><button className="view-more-btn-new">Información ℹ️</button></Link>
           </PokeCard>
         ))}
       </div>
