@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './PokeList.css';
 import { FavoritesContext } from '../context/FavoritesContext';
 import { CartContext } from '../context/CartContext';
-import PokeCard from './PokeCard';
+import PokeCard from '../components/PokeCard';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);

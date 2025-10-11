@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Comprar = () => {
-  // Simulando el carrito con datos de ejemplo
   const [cart] = useState([
     { name: 'Venusaur', price: 1500 },
     { name: 'Charizard', price: 2500 },

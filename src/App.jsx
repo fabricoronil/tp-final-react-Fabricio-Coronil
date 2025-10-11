@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import PokeStoreNav from './components/PokeStoreNav';
 import PokeList from './components/PokeList';
-import Home from './components/Home';
-import Favoritos from './components/Favoritos';
-import Carrito from './components/Carrito';
-import PokeDetail from './components/PokeDetail';
-import Comprar from './components/Comprar'; // 👈 nueva import
-import { FavoritesProvider } from './components/FavoritesProvider';
+import Home from './pages/Home';
+import Favoritos from './pages/Favoritos';
+import Carrito from './pages/Carrito';
+import PokeDetail from './pages/PokeDetail';
+import Comprar from './pages/Comprar';
+import { FavoritesProvider } from './pages/FavoritesProvider';
 import { CartProvider } from './components/CartProvider';
 import './App.css';
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/pokemon/:id" element={<PokeDetail />} />
             <Route path="/favoritos" element={<Favoritos />} />
             <Route path="/carrito" element={<Carrito />} />
-            <Route path="/comprar" element={<Comprar />} /> {/* 👈 nueva ruta */}
+            <Route path="/comprar" element={<Comprar />} />
           </Routes>
         </div>
       </CartProvider>

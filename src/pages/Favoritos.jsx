@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from '../context/FavoritesContext';
-import './PokeList.css';
-import PokeCard from './PokeCard';
+import '../components/PokeList.css';
+import PokeCard from '../components/PokeCard';
 
 export default function Favoritos() {
   const { favorites, removeFromFavorites } = useContext(FavoritesContext);
