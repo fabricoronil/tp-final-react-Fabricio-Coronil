@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import PokeStoreNav from './components/PokeStoreNav';
-import PokeList from './components/PokeList';
+import PokeList from './pages/PokeList';
 import Home from './pages/Home';
 import Favoritos from './pages/Favoritos';
 import Carrito from './pages/Carrito';

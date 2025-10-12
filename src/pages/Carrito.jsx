@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
-import '../components/PokeList.css';
+import './PokeList.css';
 
 export default function Carrito() {
   const { cart, removeFromCart } = useContext(CartContext);
