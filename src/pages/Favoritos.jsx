@@ -18,15 +18,17 @@ export default function Favoritos() {
       <div className="pokemon-container">
         {favorites.map((p, index) => (
           <PokeCard key={index} pokemon={p}>
-            <Link to={`/pokemon/${p.id}`}>
-              <button className="view-more-btn-new">Informacion</button>
-            </Link>
-            <button
-              className="remove-favorite-btn-new"
-              onClick={() => removeFromFavorites(p.name)}
-            >
-              Quitar de favoritos
-            </button>
+            <div className="action-buttons">
+              <Link to={`/pokemon/${p.id}`}>
+                <button className="view-more-btn-new">Informacion</button>
+              </Link>
+              <button
+                className="heart-btn favorited"
+                onClick={() => removeFromFavorites(p.name)}
+              >
+                &#x2764;
+              </button>
+            </div>
           </PokeCard>
         ))}
       </div>

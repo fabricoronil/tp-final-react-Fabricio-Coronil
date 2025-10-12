@@ -10,7 +10,7 @@ const PokeList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [nextUrl, setNextUrl] = useState('https://pokeapi.co/api/v2/pokemon');
-  const { addToFavorites } = useContext(FavoritesContext);
+  const { favorites, addToFavorites, removeFromFavorites } = useContext(FavoritesContext);
   const { addToCart } = useContext(CartContext);
 
   const fetchPokemon = async (url) => {
@@ -63,13 +63,29 @@ const PokeList = () => {
   return (
     <div>
       <div className="pokemon-container">
-        {pokemon.map((p) => (
-          <PokeCard key={p.id} pokemon={p}>
-            <button className="add-to-cart-btn-new" onClick={() => addToCart(p)}>Añadir al carrito🛒</button>
-            <button className="add-favorite-btn-new" onClick={() => addToFavorites(p)}>❤️</button>
-            <Link to={`/pokemon/${p.id}`} state={{ price: p.price }}><button className="view-more-btn-new">Información ℹ️</button></Link>
-          </PokeCard>
-        ))}
+        {pokemon.map((p) => {
+          const isFavorite = favorites.some(fav => fav.name === p.name);
+          return (
+            <PokeCard key={p.id} pokemon={p}>
+              <div className="action-buttons">
+                <button className="add-to-cart-btn-new" onClick={() => addToCart(p)}>Añadir al carrito🛒</button>
+                <button
+                  className={`heart-btn ${isFavorite ? 'favorited' : ''}`}
+                  onClick={() => {
+                    if (isFavorite) {
+                      removeFromFavorites(p.name);
+                    } else {
+                      addToFavorites(p);
+                    }
+                  }}
+                >
+                  &#x2764;
+                </button>
+              </div>
+              <Link to={`/pokemon/${p.id}`} state={{ price: p.price }}><button className="view-more-btn-new">Información ℹ️</button></Link>
+            </PokeCard>
+          )
+        })}
       </div>
       <div className="load-more-container">
         {nextUrl && (
