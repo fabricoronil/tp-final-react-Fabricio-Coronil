@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import './Comprar.css';
 
 const Comprar = () => {
-  const [cart] = useState([
-    { name: 'Venusaur', price: 1500 },
-    { name: 'Charizard', price: 2500 },
-    { name: 'Blastoise', price: 2000 }
-  ]);
+  const { cart } = useContext(CartContext);
+
 
   const [formData, setFormData] = useState({
     nombre: '',
@@ -36,7 +34,7 @@ const Comprar = () => {
   };
 
   const subtotal = cart.reduce((acc, p) => acc + (p.price || 0), 0);
-  const envio = subtotal > 5000 ? 0 : 500;
+  const envio = subtotal > 5000 ? 0 : 10;
   const total = subtotal + envio;
 
   return (
