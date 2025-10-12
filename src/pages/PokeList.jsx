@@ -4,6 +4,7 @@ import './PokeList.css';
 import { FavoritesContext } from '../context/FavoritesContext';
 import { CartContext } from '../context/CartContext';
 import PokeCard from '../components/PokeCard';
+import Loading from '../components/Loading';
 
 const PokeList = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -53,7 +54,7 @@ const PokeList = () => {
   };
 
   if (loading && pokemon.length === 0) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
