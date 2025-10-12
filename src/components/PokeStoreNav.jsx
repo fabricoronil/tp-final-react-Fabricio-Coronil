@@ -81,6 +81,7 @@ export default function PokeStoreNav() {
                   />
                 )}
               </svg>
+              {(cart.length > 0 || favorites.length > 0) && <span className="mobile-menu-indicator"></span>}
             </button>
           </div>
 
