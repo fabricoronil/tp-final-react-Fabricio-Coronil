@@ -59,6 +59,7 @@ export default function Carrito() {
           <div key={index} className="pokemon-card">
             <img src={p.image} alt={p.name} />
             <p>{p.name}</p>
+            <p>${p.price}</p>
             <Link to={`/pokemon/${p.id}`} style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
               <button
                 style={getVerDetallesButtonStyle(index)}

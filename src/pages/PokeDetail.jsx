@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import './PokeDetail.css';
 import { CartContext } from '../context/CartContext';
 import { FavoritesContext } from '../context/FavoritesContext';
 
 function PokeDetail() {
   const { id } = useParams();
+  const location = useLocation();
+  const { price } = location.state || {};
   const [pokemon, setPokemon] = useState(null);
   const [species, setSpecies] = useState(null);
   const { addToCart } = useContext(CartContext);
@@ -28,7 +30,8 @@ function PokeDetail() {
     const pokemonToAdd = {
       id: pokemon.id,
       name: pokemon.name,
-      image: pokemon.sprites.other['official-artwork'].front_default
+      image: pokemon.sprites.other['official-artwork'].front_default,
+      price: price
     };
     addToCart(pokemonToAdd);
   };
@@ -85,6 +88,10 @@ function PokeDetail() {
               <div>
                 <h3>Peso</h3>
                 <p>{pokemon.weight / 10} kg</p>
+              </div>
+              <div>
+                <h3>Precio</h3>
+                <p>${price}</p>
               </div>
             </div>
             <div class="poke-abilities">

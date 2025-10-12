@@ -6,6 +6,7 @@ const PokeCard = ({ pokemon, children }) => {
     <div className="pokemon-card">
       <img src={pokemon.image} alt={pokemon.name} />
       <p>{pokemon.name}</p>
+      <p>${pokemon.price}</p>
       <div className="pokemon-card-buttons">
         {children}
       </div>

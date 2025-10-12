@@ -121,6 +121,9 @@
 .add-favorite-btn-new {
   background: linear-gradient(135deg, #ff2c2c, #ff5858);
   border-color: #ff2c2c;
+  padding: 8px 12px;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .view-more-btn-new {
