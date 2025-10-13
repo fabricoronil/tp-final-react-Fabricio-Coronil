@@ -8,12 +8,14 @@ import PokeDetail from './pages/PokeDetail';
 import Comprar from './pages/Comprar';
 import { FavoritesProvider } from './pages/FavoritesProvider';
 import { CartProvider } from './components/CartProvider';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
   return (
     <FavoritesProvider>
       <CartProvider>
+        <ScrollToTop />
         <PokeStoreNav />
         <div className="content-area">
           <Routes>
