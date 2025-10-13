@@ -1,12 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import './PokeList.css';
+import './Carrito.css';
+import PokeCard from '../components/PokeCard';
+
 
 export default function Carrito() {
   const { cart, removeFromCart } = useContext(CartContext);
-  const [isHovered, setIsHovered] = useState(false);
-  const [hoveredButton, setHoveredButton] = useState(null);
   const navigate = useNavigate();
 
   const handleComprar = () => {
@@ -17,34 +18,6 @@ export default function Carrito() {
     navigate('/comprar');
   };
 
-  const buttonStyle = {
-    padding: '15px 40px',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    backgroundColor: isHovered ? '#FB8C00' : '#FF9800',
-    color: 'white',
-    border: 'none',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-    transition: 'background-color 0.3s, transform 0.2s',
-    fontWeight: 'bold',
-    width: '300px',
-    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-  };
-
-  const getVerDetallesButtonStyle = (index) => ({
-    backgroundColor: hoveredButton === index ? '#d35400' : '#e67e22',
-    color: 'white',
-    border: 'none',
-    padding: '8px 12px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    marginTop: '10px',
-    fontWeight: 'bold',
-    transform: hoveredButton === index ? 'scale(1.1)' : 'scale(1)',
-    transition: 'transform 0.2s ease-in-out, background-color 0.3s ease',
-  });
-
   return (
     <div className="section-carrito">
       <h2 className="section-title font-pixel">
@@ -53,37 +26,29 @@ export default function Carrito() {
       <p className="section-text">
         Revisa tu carrito de compras antes de finalizar tu pedido.
       </p>
+      
 
       <div className="pokemon-container">
         {cart.map((p, index) => (
-          <div key={index} className="pokemon-card">
-            <img src={p.image} alt={p.name} />
-            <p>{p.name}</p>
-            <p>${p.price}</p>
-            <Link to={`/pokemon/${p.id}`} style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
-              <button
-                style={getVerDetallesButtonStyle(index)}
-                onMouseEnter={() => setHoveredButton(index)}
-                onMouseLeave={() => setHoveredButton(null)}
-              >
-                INFORMACION
-              </button>
+          <PokeCard key={index} pokemon={p}>
+            <Link to={`/pokemon/${p.id}`} className="carrito-link">
+              <button className="view-more-btn-new">INFORMACION</button>
             </Link>
             <button className='estilobotonquitar' onClick={() => removeFromCart(index)}>QUITAR DEL CARRITO</button>
-          </div>
+          </PokeCard>
         ))}
-      </div>
-
-      <div style={{ textAlign: 'center', marginTop: '30px' }}>
+        
+        
         <button
           onClick={handleComprar}
-          style={buttonStyle}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          Comprar
-        </button>
+          className="comprar-button">Comprar</button>
+           
       </div>
-    </div>
+        
+      </div>
+
+      
+        
+  
   );
 }

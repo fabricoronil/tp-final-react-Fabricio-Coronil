@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import './Comprar.css';
 
 const Comprar = () => {
-  const { cart } = useContext(CartContext);
-
+  const { cart, clearCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     nombre: '',
@@ -31,6 +32,8 @@ const Comprar = () => {
       return;
     }
     alert(`¡Pedido realizado con éxito, ${formData.nombre}! Has comprado: ${cart.map(p => p.name).join(', ')}`);
+    clearCart();
+    navigate('/');
   };
 
   const subtotal = cart.reduce((acc, p) => acc + (p.price || 0), 0);

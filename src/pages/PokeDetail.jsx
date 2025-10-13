@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import './PokeDetail.css';
 import { CartContext } from '../context/CartContext';
 import { FavoritesContext } from '../context/FavoritesContext';
@@ -7,6 +7,7 @@ import { FavoritesContext } from '../context/FavoritesContext';
 function PokeDetail() {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const { price } = location.state || {};
   const [pokemon, setPokemon] = useState(null);
   const [species, setSpecies] = useState(null);
@@ -34,6 +35,7 @@ function PokeDetail() {
       price: price
     };
     addToCart(pokemonToAdd);
+    navigate('/carrito');
   };
 
   const handleAddToFavorites = () => {
