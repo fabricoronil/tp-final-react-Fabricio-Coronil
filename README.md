@@ -34,19 +34,6 @@ npm run dev
 
 Abre tu navegador y visita http://localhost:5173 para ver la aplicación en acción.
 
-🗂️ Estructura del Proyecto
-tp-final-react-Fabricio-Coronil/
-├── src/
-│   ├── assets/             # Imágenes y recursos estáticos
-│   ├── components/         # Componentes reutilizables (Navbar, Cards, etc.)
-│   ├── context/            # Contextos de React (CartContext, FavoritesContext)
-│   ├── pages/              # Componentes de página (Home, PokeList, Carrito, etc.)
-│   ├── App.jsx             # Componente raíz con el enrutador
-│   └── main.jsx            # Punto de entrada de la aplicación
-├── public/                 # Archivos públicos
-├── package.json            # Dependencias y scripts del proyecto
-└── README.md               # Este archivo
-
 👤 Autor
 Fabricio Coronil
 
