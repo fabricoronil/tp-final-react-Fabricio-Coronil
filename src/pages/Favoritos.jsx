@@ -8,7 +8,7 @@ export default function Favoritos() {
   const { favorites, removeFromFavorites } = useContext(FavoritesContext);
 
   return (
-    <div>
+    <div className="section-favorito">
       <h2 className="section-title font-pixel">
         ❤️ Tus Favoritos ({favorites.length})
       </h2>

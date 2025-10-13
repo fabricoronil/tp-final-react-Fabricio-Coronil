@@ -46,7 +46,7 @@ export default function Carrito() {
   });
 
   return (
-    <div>
+    <div className="section-carrito">
       <h2 className="section-title font-pixel">
         🛒 Tu Carrito ({cart.length} items)
       </h2>
