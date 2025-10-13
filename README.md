@@ -1,16 +1,55 @@
-# React + Vite
+🌟 PokeStore: Tu Tienda Pokémon
+Una aplicación web desarrollada con React y Vite que simula una tienda de Pokémon. Los usuarios pueden explorar Pokémon, ver sus detalles, agregarlos a un carrito de compras y guardar sus favoritos. Este proyecto fue creado como trabajo final para el curso de Desarrollo Front-End de la UTN.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+✨ Características Principales
+- Navegación de Pokémon: Explora una lista completa de Pokémon obtenida desde la PokéAPI.
+- Detalles del Pokémon: Haz clic en cualquier Pokémon para ver información detallada.
+- Carrito de Compras: Añade Pokémon a un carrito y revisa tu selección antes de "comprar".
+- Lista de Favoritos: Marca tus Pokémon preferidos y guárdalos en una sección especial.
+- Rutas Dinámicas: Implementado con React Router para una navegación fluida y dinámica.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠️ Tecnologías Utilizadas
+- React 19.1.1: Para construir la interfaz de usuario.
+- Vite 7.1.7: Como herramienta de construcción y servidor de desarrollo.
+- React Router DOM 7.9.3: Para el enrutamiento del lado del cliente.
+- PokéAPI: Como fuente de datos para toda la información de los Pokémon.
+- CSS Moderno: Para estilos y animaciones, con un diseño totalmente responsivo.
 
-## React Compiler
+📦 Instalación
+Asegúrate de tener Node.js y npm instalados en tu sistema.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clona el repositorio:
+git clone https://github.com/fabricoronil/tp-final-react-Fabricio-Coronil.git
 
-## Expanding the ESLint configuration
+2. Navega al directorio del proyecto:
+cd tp-final-react-Fabricio-Coronil
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Instala las dependencias:
+npm install
+
+🚀 Ejecución
+Para iniciar la aplicación en modo de desarrollo:
+npm run dev
+
+Abre tu navegador y visita http://localhost:5173 para ver la aplicación en acción.
+
+🗂️ Estructura del Proyecto
+tp-final-react-Fabricio-Coronil/
+├── src/
+│   ├── assets/             # Imágenes y recursos estáticos
+│   ├── components/         # Componentes reutilizables (Navbar, Cards, etc.)
+│   ├── context/            # Contextos de React (CartContext, FavoritesContext)
+│   ├── pages/              # Componentes de página (Home, PokeList, Carrito, etc.)
+│   ├── App.jsx             # Componente raíz con el enrutador
+│   └── main.jsx            # Punto de entrada de la aplicación
+├── public/                 # Archivos públicos
+├── package.json            # Dependencias y scripts del proyecto
+└── README.md               # Este archivo
+
+👤 Autor
+Fabricio Coronil
+
+📄 Licencia
+Este proyecto es para fines educativos y para presentar como proyecto final de front end, a la Universidad de la UTN.
+
