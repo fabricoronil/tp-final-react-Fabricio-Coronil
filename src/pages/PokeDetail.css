@@ -273,32 +273,43 @@
 
 .favorite-btn, .cart-btn {
   padding: 0.8rem 1.5rem;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .favorite-btn {
-  background-color: #ffca28; /* Amber */
-  color: #333;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: #c0392b;
 }
 
 .favorite-btn:hover {
-  background-color: #ffb300; /* Darker Amber */
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  border-color: #a93226;
+  box-shadow: 0 7px 14px rgba(231, 76, 60, 0.5);
   transform: translateY(-2px);
 }
 
 .cart-btn {
-  background-color: #ef5350; /* Red */
-  color: white;
+  background:  linear-gradient(135deg, #28b463, #58d68d);
+  border-color: #28b463;
 }
 
 .cart-btn:hover {
-  background-color: #e53935; /* Darker Red */
+  background: linear-gradient(135deg, #58d68d, #28b463);
+  border-color: #28b463;
+  box-shadow: 0 7px 14px rgba(40, 180, 99, 0.5);
   transform: translateY(-2px);
+}
+
+.favorite-btn:active, .cart-btn:active {
+  transform: translateY(0) scale(1.2);
+  box-shadow : 0 3px 6px rgba(44, 62, 80, 0.3);
 }
 
 @media (max-width: 600px) {
