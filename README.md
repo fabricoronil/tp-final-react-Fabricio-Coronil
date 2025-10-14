@@ -1,4 +1,4 @@
-🌟 PokeStore: Tu Tienda Pokémon
+🟡 PokeStore: Tu Tienda Pokémon
 Una aplicación web desarrollada con React y Vite que simula una tienda de Pokémon. Los usuarios pueden explorar Pokémon, ver sus detalles, agregarlos a un carrito de compras y guardar sus favoritos. Este proyecto fue creado como trabajo final para el curso de Desarrollo Front-End de la UTN.
 
 

@@ -9,6 +9,7 @@ import Comprar from './pages/Comprar';
 import { FavoritesProvider } from './pages/FavoritesProvider';
 import { CartProvider } from './components/CartProvider';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/comprar" element={<Comprar />} />
           </Routes>
         </div>
+        <Footer />
       </CartProvider>
     </FavoritesProvider>
   );
