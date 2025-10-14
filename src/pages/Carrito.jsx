@@ -39,12 +39,14 @@ export default function Carrito() {
         ))}
         
         
+        
+           
+      </div>
+      <div className='container-comprar'>
         <button
           onClick={handleComprar}
           className="comprar-button">Comprar</button>
-           
-      </div>
-        
+          </div>
       </div>
 
       

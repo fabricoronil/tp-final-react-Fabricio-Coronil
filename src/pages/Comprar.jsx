@@ -121,7 +121,7 @@ const Comprar = () => {
 
               {subtotal > 0 && subtotal < 5000 && (
                 <p className="comprar-shipping-info">
-                  💡 Envío gratis en compras mayores a $5000
+                  💡 Envío gratis en compras mayores a $200
                 </p>
               )}
             </div>

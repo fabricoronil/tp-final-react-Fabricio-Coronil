@@ -4,7 +4,8 @@
   border-radius: 20px;
   padding: 24px;
   text-align: center;
-  width: 250px;
+  max-width: 250px;
+  width: 100%;
   background: linear-gradient(135deg, #ffd93d 0%, #ffc107 50%, #f5a623 100%);
   box-shadow: 0 10px 30px rgba(255, 193, 7, 0.4), 
               0 5px 15px rgba(0, 0, 0, 0.15),
@@ -289,4 +290,11 @@
   }
 
 
+}
+
+@media (min-width: 1200px) {
+  .pokemon-card-buttons button {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
 }
