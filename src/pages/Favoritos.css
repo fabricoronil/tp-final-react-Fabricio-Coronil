@@ -1,0 +1,16 @@
+/* Estilos para la página de Favoritos */
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.7rem;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+}

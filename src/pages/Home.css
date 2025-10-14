@@ -9,7 +9,7 @@
   
 }
 
-.section-title {
+.home-container .section-title {
   font-size: 3rem;
   color: #2c2c2c;
   margin-bottom: 1.5rem;
@@ -87,10 +87,10 @@
     padding: 2rem 1rem;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .home-container .section-title {
+    font-size: 1.5rem;
     text-shadow: 2px 2px 0px #ffc107,
-                 4px 4px 0px rgba(229, 57, 53, 0.3);
+                 3px 3px 0px rgba(229, 57, 53, 0.3);
   }
 
   .section-text {
@@ -107,8 +107,11 @@
 }
 
 @media (max-width: 480px) {
-  .section-title {
-    font-size: 1.5rem;
+  .home-container .section-title {
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 0px #ffc107;
+    letter-spacing: 0;
+    overflow-wrap: break-word;
   }
 
   .section-text {
@@ -116,4 +119,3 @@
     padding: 1.25rem;
   }
 }
-
