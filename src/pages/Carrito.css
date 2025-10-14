@@ -9,6 +9,12 @@
     margin-bottom: 10px;
 }
 
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
+}
+
 .section-text {
     text-align: center;
     font-size: 1.2rem;

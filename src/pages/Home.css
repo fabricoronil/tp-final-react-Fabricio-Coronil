@@ -108,7 +108,7 @@
 
 @media (max-width: 480px) {
   .home-container .section-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-shadow: 1px 1px 0px #ffc107;
     letter-spacing: 0;
     overflow-wrap: break-word;
