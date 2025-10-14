@@ -1,14 +1,29 @@
 .footer {
-    background-color: #333;
+    background: linear-gradient(135deg, #ffd700, #ff8c00, #ffc107, #ffeb3b);
+    background-size: 400% 400%;
     color: white;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
     position: relative;
-    bottom: 0;
     width: 100%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
