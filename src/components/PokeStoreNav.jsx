@@ -1,14 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './PokeStoreNav.css';
 import pokeStoreLogo from '../assets/pokestore.png';
-import { CartContext } from '../context/CartContext';
-import { FavoritesContext } from '../context/FavoritesContext';
 
 export default function PokeStoreNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { cart } = useContext(CartContext);
-  const { favorites } = useContext(FavoritesContext);
+  const cart = useSelector((state) => state.cart.items);
+  const favorites = useSelector((state) => state.favorites.items);
 
   return (
     <div className="screen">

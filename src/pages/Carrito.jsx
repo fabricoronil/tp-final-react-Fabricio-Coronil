@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import './PokeList.css';
 import './Carrito.css';
 import PokeCard from '../components/PokeCard';
-
+import { removeItem } from '../features/cart/cartSlice';
 
 export default function Carrito() {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleComprar = () => {
@@ -34,7 +35,7 @@ export default function Carrito() {
             <Link to={`/pokemon/${p.id}`} className="carrito-link">
               <button className="view-more-btn-new">INFORMACION</button>
             </Link>
-            <button className='estilobotonquitar' onClick={() => removeFromCart(index)}>QUITAR DEL CARRITO</button>
+            <button className='estilobotonquitar' onClick={() => dispatch(removeItem(index))}>QUITAR DEL CARRITO</button>
           </PokeCard>
         ))}
         

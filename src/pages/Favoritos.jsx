@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { FavoritesContext } from '../context/FavoritesContext';
+import { useSelector, useDispatch } from 'react-redux';
 import "./PokeList.css";
 import PokeCard from '../components/PokeCard';
+import { toggleFavorite } from '../features/favorites/favoritesSlice';
 
 export default function Favoritos() {
-  const { favorites, removeFromFavorites } = useContext(FavoritesContext);
+  const favorites = useSelector((state) => state.favorites.items);
+  const dispatch = useDispatch();
 
   return (
     <div className="section-favorito">
@@ -24,7 +26,7 @@ export default function Favoritos() {
               </Link>
               <button
                 className="heart-btn favorited"
-                onClick={() => removeFromFavorites(p.name)}
+                onClick={() => dispatch(toggleFavorite(p))}
               >
                 &#x2764;
               </button>

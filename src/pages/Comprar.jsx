@@ -1,10 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { clearCart } from '../features/cart/cartSlice';
 import './Comprar.css';
 
 const Comprar = () => {
-  const { cart, clearCart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -32,7 +34,7 @@ const Comprar = () => {
       return;
     }
     alert(`¡Pedido realizado con éxito, ${formData.nombre}! Has comprado: ${cart.map(p => p.name).join(', ')}`);
-    clearCart();
+    dispatch(clearCart());
     navigate('/');
   };
 

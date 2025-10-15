@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './PokeList.css';
-import { FavoritesContext } from '../context/FavoritesContext';
-import { CartContext } from '../context/CartContext';
+import { addItem } from '../features/cart/cartSlice';
+import { toggleFavorite } from '../features/favorites/favoritesSlice';
 import PokeCard from '../components/PokeCard';
 import Loading from '../components/Loading';
 
@@ -11,8 +12,8 @@ const PokeList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [nextUrl, setNextUrl] = useState('https://pokeapi.co/api/v2/pokemon');
-  const { favorites, addToFavorites, removeFromFavorites } = useContext(FavoritesContext);
-  const { addToCart } = useContext(CartContext);
+  const favorites = useSelector((state) => state.favorites.items);
+  const dispatch = useDispatch();
 
   const fetchPokemon = async (url) => {
     setLoading(true);
@@ -69,16 +70,10 @@ const PokeList = () => {
           return (
             <PokeCard key={p.id} pokemon={p}>
               <div className="action-buttons">
-                <button className="add-to-cart-btn-new" onClick={() => addToCart(p)}>Añadir al carrito🛒</button>
+                <button className="add-to-cart-btn-new" onClick={() => dispatch(addItem(p))}>Añadir al carrito🛒</button>
                 <button
                   className={`heart-btn ${isFavorite ? 'favorited' : ''}`}
-                  onClick={() => {
-                    if (isFavorite) {
-                      removeFromFavorites(p.name);
-                    } else {
-                      addToFavorites(p);
-                    }
-                  }}
+                  onClick={() => dispatch(toggleFavorite(p))}
                 >
                   &#x2764;
                 </button>

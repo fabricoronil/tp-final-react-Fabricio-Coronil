@@ -1,18 +1,19 @@
-import { useEffect, useState, useContext } from 'react';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './PokeDetail.css';
-import { CartContext } from '../context/CartContext';
-import { FavoritesContext } from '../context/FavoritesContext';
+import { addItem } from '../features/cart/cartSlice';
+import { toggleFavorite } from '../features/favorites/favoritesSlice';
 
 function PokeDetail() {
   const { id } = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
   const { price } = location.state || {};
   const [pokemon, setPokemon] = useState(null);
   const [species, setSpecies] = useState(null);
-  const { addToCart } = useContext(CartContext);
-  const { addToFavorites } = useContext(FavoritesContext);
+  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites.items);
+  const isFavorite = pokemon && favorites.some(fav => fav.name === pokemon.name);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -34,17 +35,17 @@ function PokeDetail() {
       image: pokemon.sprites.other['official-artwork'].front_default,
       price: price
     };
-    addToCart(pokemonToAdd);
-    navigate('/carrito');
+    dispatch(addItem(pokemonToAdd));
   };
 
-  const handleAddToFavorites = () => {
+  const handleToggleFavorite = () => {
     const pokemonToAdd = {
       id: pokemon.id,
       name: pokemon.name,
-      image: pokemon.sprites.other['official-artwork'].front_default
+      image: pokemon.sprites.other['official-artwork'].front_default,
+      price: price
     };
-    addToFavorites(pokemonToAdd);
+    dispatch(toggleFavorite(pokemonToAdd));
   };
 
   if (!pokemon || !species) {
@@ -105,7 +106,9 @@ function PokeDetail() {
               </ul>
             </div>
             <div class="poke-actions">
-              <button class="favorite-btn" onClick={handleAddToFavorites}>Añadir a Favoritos</button>
+              <button className={`favorite-btn ${isFavorite ? 'favorited' : ''}`} onClick={handleToggleFavorite}>
+                {isFavorite ? 'Quitar de Favoritos' : 'Añadir a Favoritos'}
+              </button>
               <button class="cart-btn" onClick={handleAddToCart}>Añadir al Carrito</button>
             </div>
           </div>
