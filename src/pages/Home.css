@@ -71,9 +71,9 @@
   height: 50px;
   background: #e53935;
   background-image: url(../assets/pikachu_icon-icons.com_67535.png);
-  background-size: contain;      /* se adapta al círculo sin deformarse */
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;   /* centra el Pikachu */
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .home-container {
     padding: 2rem 1rem;

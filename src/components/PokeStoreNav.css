@@ -241,7 +241,6 @@
   font-size: 1.5rem;
 }
 
-/* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .nav-button {
     padding: 0.65rem 1.2rem;

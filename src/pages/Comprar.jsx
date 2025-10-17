@@ -19,9 +19,26 @@ const Comprar = () => {
     metodoPago: 'tarjeta'
   });
 
+  const [cardData, setCardData] = useState({
+    numeroTarjeta: '',
+    vencimiento: '',
+    cvv: ''
+  });
+
+  const [comprobante, setComprobante] = useState(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleCardInputChange = (e) => {
+    const { name, value } = e.target;
+    setCardData({ ...cardData, [name]: value });
+  };
+
+  const handleComprobanteChange = (e) => {
+    setComprobante(e.target.files[0]);
   };
 
   const handleSubmit = () => {
@@ -32,6 +49,18 @@ const Comprar = () => {
     if (!formData.nombre || !formData.email || !formData.telefono || !formData.direccion) {
       alert("Por favor completa todos los campos obligatorios");
       return;
+    }
+    if (formData.metodoPago === 'tarjeta') {
+      if (!cardData.numeroTarjeta || !cardData.vencimiento || !cardData.cvv) {
+        alert("Por favor completa todos los datos de la tarjeta");
+        return;
+      }
+    }
+    if (formData.metodoPago === 'transferencia') {
+      if (!comprobante) {
+        alert("Por favor sube el comprobante de pago");
+        return;
+      }
     }
     alert(`¡Pedido realizado con éxito, ${formData.nombre}! Has comprado: ${cart.map(p => p.name).join(', ')}`);
     dispatch(clearCart());
@@ -78,6 +107,24 @@ const Comprar = () => {
                   </span>
                 </label>
               ))}
+              {formData.metodoPago === 'tarjeta' && (
+                <div className="comprar-tarjeta-form">
+                  <input type="text" name="numeroTarjeta" placeholder="Número de tarjeta" value={cardData.numeroTarjeta} onChange={handleCardInputChange} className="comprar-input" />
+                  <div className="comprar-input-flex">
+                    <input type="text" name="vencimiento" placeholder="MM/AA" value={cardData.vencimiento} onChange={handleCardInputChange} className="comprar-input" />
+                    <input type="text" name="cvv" placeholder="CVV" value={cardData.cvv} onChange={handleCardInputChange} className="comprar-input" />
+                  </div>
+                </div>
+              )}
+              {formData.metodoPago === 'transferencia' && (
+                <div className="comprar-transferencia-info">
+                  <p>Datos de la cuenta de Mercado Pago <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRooqX_tEjlq63fL2GQIpdJ50tuKZ7qT-qJ8A&s" alt="Mercado Pago" className="mercado-pago-icon" />:</p>
+                  <p><span className="comprar-transferencia-info-label">Alias:</span> fabricoronil</p>
+                  <p><span className="comprar-transferencia-info-label">CVU:</span> 0000003100038334723070</p>
+                  <h3 className="comprar-card-title">Comprobante de pago</h3>
+                  <input type="file" name="comprobante" onChange={handleComprobanteChange} className="comprar-input" />
+                </div>
+              )}
             </div>
           </div>
 

@@ -20,11 +20,11 @@ export default function Carrito() {
   };
 
   return (
-    <div className="section-carrito">
-      <h2 className="section-title font-pixel">
+    <div className="carrito-section">
+      <h2 className="carrito-section__title font-pixel">
         🛒 Tu Carrito ({cart.length} items)
       </h2>
-      <p className="section-text">
+      <p className="carrito-section__text">
         Revisa tu carrito de compras antes de finalizar tu pedido.
       </p>
       
@@ -32,10 +32,10 @@ export default function Carrito() {
       <div className="pokemon-container">
         {cart.map((p, index) => (
           <PokeCard key={index} pokemon={p}>
-            <Link to={`/pokemon/${p.id}`} className="carrito-link">
+            <Link to={`/pokemon/${p.id}`} className="carrito-card__info-link">
               <button className="view-more-btn-new">INFORMACION</button>
             </Link>
-            <button className='estilobotonquitar' onClick={() => dispatch(removeItem(index))}>QUITAR DEL CARRITO</button>
+            <button className='carrito-card__remove-button' onClick={() => dispatch(removeItem(index))}>QUITAR DEL CARRITO</button>
           </PokeCard>
         ))}
         
@@ -43,10 +43,10 @@ export default function Carrito() {
         
            
       </div>
-      <div className='container-comprar'>
+      <div className='carrito__buy-container'>
         <button
           onClick={handleComprar}
-          className="comprar-button">Comprar</button>
+          className="carrito__buy-button">Comprar</button>
           </div>
       </div>
 

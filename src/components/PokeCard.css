@@ -88,8 +88,8 @@
 
 .pokemon-card-buttons button {
   padding: 12px 16px;
- border: 2px solid #e69500; /* Amarillo dorado */
-  border-radius: 10px;       /* Bordes redondeados */
+ border: 2px solid #e69500;
+  border-radius: 10px;
   cursor: pointer;
   color: white;
   font-weight: 700;
@@ -239,7 +239,7 @@
   box-shadow: 0 7px 14px rgba(52, 152, 219, 0.5);
   border-color: #1f5f8b;
 }
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .pokemon-card {
     width: 220px;
