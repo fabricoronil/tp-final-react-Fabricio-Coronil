@@ -30,31 +30,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  border-top: 1px solid #e5e7eb;
+  background-color:none;
+  
   margin-top: 40px;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+ 
 }
 
 .carrito__buy-button {
   padding: 18px 50px;
   font-size: 1.75rem;
   cursor: pointer;
-  background: linear-gradient(45deg, #ff9800, #ff5722);
+  background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
   color: white;
   border: none;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .carrito__buy-button:hover {
-  background: linear-gradient(45deg, #ff5722, #ff9800);
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
 }
 
 .carrito-card__info-link {
