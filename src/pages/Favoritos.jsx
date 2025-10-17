@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import "./PokeList.css";
+import "./Favoritos.css";
 import PokeCard from '../components/PokeCard';
 import { toggleFavorite } from '../features/favorites/favoritesSlice';
 
